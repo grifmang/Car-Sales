@@ -1,10 +1,8 @@
 import React from 'react';
-// import { additionalFeatures, car, additionalPrice } from "./reducers/reducer";
-import Header from './components/Header';
-import AddedFeatures from './components/AddedFeatures';
-import AdditionalFeatures from './components/AdditionalFeatures';
-import Total from './components/Total';
+import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
+import HomePage from "./components/HomePage";
+import CarResults from "./components/CarResults";
 import { addItem, removeItem } from "./actions/storeActions";
 
 const App = (props) => {
@@ -20,16 +18,17 @@ const App = (props) => {
   };
 
   return (
-    <div className="boxes">
-      <div className="box">
-        <Header car={props.car} />
-        <AddedFeatures car={props.car} removeItem={removeFeature}/>
-      </div>
-      <div className="box">
-        <AdditionalFeatures buyItem={buyItem} additionalFeatures={props.additionalFeatures} />
-        <Total car={props.car} additionalPrice={props.additionalPrice} />
-      </div>
-    </div>
+    <>
+    <Route exact path="/" component={HomePage} />
+    <Route path="/CarResults" render={(props) => {
+      return <CarResults
+        car={props.car}
+        buyItem={buyItem}
+        removeItem={removeFeature}
+        additionalFeatures={props.additionalFeatures}
+        additionalPrice={props.additionalPrice} />
+    }} />
+    </>
   );
 };
 

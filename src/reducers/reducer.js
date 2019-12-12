@@ -1,7 +1,7 @@
 export const initialState = {
     additionalPrice: 0,
     car: {
-      price: 26395,
+      price: 26395, // 26395
       name: '2019 Ford Mustang',
       image:
         'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
@@ -35,7 +35,7 @@ export const initialState = {
         case "REMOVE_ITEM":
                 return {
                     ...state,
-                    additionalPrice: action.payload.price - state.additionalPrice,
+                    additionalPrice: state.additionalPrice - action.payload.price,
                     car: {
                         ...state.car,
                         features: state.car.features.filter(element => {
