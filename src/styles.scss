@@ -47,3 +47,12 @@ body {
     color: #333;
   }
 }
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+.card {
+  margin: 10px;
+}
